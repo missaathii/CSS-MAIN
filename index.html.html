@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community System Strengthening | NACP</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Theme Colors */
+            --primary: #ad1457;          /* The requested Berry/Pink */
+            --primary-light: #d81b60;    /* Lighter shade for hover/accents */
+            --primary-fade: #fce4ec;     /* Very light shade for backgrounds */
+            
+            --navy: #1a237e;             /* Deep Navy Blue */
+            --navy-light: #283593;       /* Lighter Navy */
+            
+            --text-dark: #0f172a;
+            --text-gray: #475569;
+            --white: #ffffff;
+            
+            --gradient-main: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        /* --- Logo Top Bar --- */
+        .top-bar {
+            background-color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 55px; /* Ensures logos are small and similar in size */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* --- Hero Section --- */
+        header {
+            background: var(--gradient-main);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.95;
+            background: rgba(255,255,255,0.1);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        section {
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-main);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Brief Card --- */
+        .brief-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border-top: 5px solid var(--primary);
+        }
+
+        .brief-content {
+            padding: 40px;
+        }
+
+        .brief-content p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- Goal Banner --- */
+        .goal-banner {
+            background: var(--gradient-main);
+            color: var(--white);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-banner::before {
+            content: '\f140'; /* Bullseye Icon generic */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.05;
+            top: -50px;
+            right: -20px;
+            color: var(--white);
+        }
+
+        .goal-banner h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .goal-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* --- Objectives Grid --- */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .obj-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .obj-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(173, 20, 87, 0.15); /* Pinkish shadow */
+            border-color: var(--primary-fade);
+        }
+
+        .obj-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--white), var(--primary-fade));
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(173, 20, 87, 0.1);
+        }
+
+        .obj-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .obj-card p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        /* --- Implementation Timeline --- */
+        .timeline-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .phase {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .phase:last-child {
+            margin-bottom: 0;
+        }
+
+        .phase-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--navy);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            z-index: 2;
+            border: 3px solid #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .phase-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            border-left: 4px solid var(--primary);
+            transition: 0.3s;
+        }
+        
+        .phase:hover .phase-content {
+            background: var(--primary-fade);
+        }
+
+        .phase-content h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        .phase-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Connecting line for timeline */
+        .timeline-wrapper {
+            position: relative;
+        }
+        .timeline-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 40px;
+            left: 24px; /* Align with center of circle */
+            width: 2px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 5px solid var(--primary);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        footer .legal {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .top-bar { padding: 10px; }
+            .logo { height: 40px; }
+            .brief-content { padding: 25px; }
+            .goal-banner { padding: 30px 20px; }
+            .phase { flex-direction: column; }
+            .phase-number { margin-bottom: 10px; }
+            .timeline-wrapper::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar with Logos -->
+    <div class="top-bar">
+        <!-- Left Logo: Saathii -->
+        <img src="https://saathii.in/wp-content/uploads/2021/05/saathii_transparent.png" alt="Saathii Logo" class="logo">
+        
+        <!-- Right Logo: NACO -->
+        <img src="https://naco.gov.in/sites/all/themes/naco/images/naco_update.png" alt="NACO Logo" class="logo">
+    </div>
+
+    <!-- Hero Header -->
+    <header>
+        <div class="hero-content">
+            <h1>Community System Strengthening</h1>
+            <div class="subtitle">Community-Led Monitoring Project</div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Project Brief -->
+        <section id="brief">
+            <h2 class="section-title">Project <span>Brief</span></h2>
+            <div class="brief-card">
+                <div class="brief-content">
+                    <p>The <span class="highlight">Community Systems Strengthening (CSS) Project</span> supports the National AIDS Control Programme (NACP) by institutionalising meaningful community participation in programme planning, implementation, monitoring and review. The project strengthens structured community platforms and mechanisms—such as <strong>Community Champions (CCs)</strong>, <strong>State and District Community Resource Groups (S-CRGs and D-CRGs)</strong>, <strong>Community-Led Monitoring (CLM)</strong>, and <strong>State-Level Networks (SLNs)</strong>—to ensure community voices inform programme decisions and service delivery.</p>
+                    <p style="margin-bottom: 0;">The project is implemented in coordination with NACO, SACS and DISHA/DAPCU units, with the Implementation Partner playing a facilitative and capacity-building role. Emphasis is placed on standardised processes, documentation, and monitoring systems to ensure consistency, accountability and sustainability of community engagement across states and districts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Goal -->
+        <section id="goal">
+            <div class="goal-banner">
+                <h2>Project Goal</h2>
+                <p>To strengthen community systems within the National AIDS Control Programme by enabling structured, informed and sustained participation of communities in HIV programme planning, implementation, monitoring and accountability mechanisms.</p>
+            </div>
+        </section>
+
+        <!-- Objectives -->
+        <section id="objectives">
+            <h2 class="section-title">Project <span>Objectives</span></h2>
+            <div class="objectives-grid">
+                <!-- Obj 1 -->
+                <div class="obj-card">
+                    <div class="obj-icon"><i class="fas fa-users"></i></div>
+                    <h3>Community Champions</h3>
+                    <p>To identify, train and engage Community Champions from key populations, PLHIV and vulnerable groups to support community participation and feedback mechanisms.</p>
+                </div>
+                <!-- Obj 2 -->
+                <div class="obj-card">
+                    <div class="obj-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Resource Groups (CRGs)</h3>
+                    <p>To strengthen the functioning of State and District Community Resource Groups as formal platforms for programme review, problem-solving and follow-up action.</p>
+                </div>
+                <!-- Obj 3 -->
+                <div class="obj-card">
+                    <div class="obj-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Community-Led Monitoring</h3>
+                    <p>To institutionalise Community-Led Monitoring to capture community experience with HIV services and ensure timely corrective actions through programme structures.</p>
+                </div>
+                <!-- Obj 4 -->
+                <div class="obj-card">
+                    <div class="obj-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>State-Level Networks</h3>
+                    <p>To support the formation or strengthening of State-Level Networks to function as stable, representative and compliant community platforms.</p>
+                </div>
+                <!-- Obj 5 -->
+                <div class="obj-card">
+                    <div class="obj-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Standardised Systems</h3>
+                    <p>To establish standardised monitoring, documentation and reporting systems that track CSS activities, outputs and follow-up actions across all levels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Plan -->
+        <section id="implementation">
+            <h2 class="section-title">Implementation <span>Plan</span></h2>
+            <div class="timeline-section">
+                <div class="timeline-wrapper">
+                    
+                    <div class="phase">
+                        <div class="phase-number">01</div>
+                        <div class="phase-content">
+                            <h3>Community Champion Strengthening</h3>
+                            <p>Community Champions will be nominated, selected and trained using standardised processes and tools. Trained Champions will be engaged in CSS activities including CLM, CRG participation and community outreach.</p>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-number">02</div>
+                        <div class="phase-content">
+                            <h3>CRG Strengthening (State & District)</h3>
+                            <p>Existing S-CRGs and D-CRGs will be reviewed and reconstituted where required. Regular meetings will be supported to review community feedback, CLM findings and programme issues.</p>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-number">03</div>
+                        <div class="phase-content">
+                            <h3>Community-Led Monitoring</h3>
+                            <p>CLM will be rolled out in identified districts and facilities using digital feedback mechanisms. Feedback will be reviewed through D-CRG meetings and follow-up actions monitored.</p>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-number">04</div>
+                        <div class="phase-content">
+                            <h3>State-Level Network Strengthening</h3>
+                            <p>New SLNs will be formed where required, and existing networks will be strengthened through governance support, statutory compliance, capacity building and sustainability planning.</p>
+                        </div>
+                    </div>
+
+                    <div class="phase">
+                        <div class="phase-number">05</div>
+                        <div class="phase-content">
+                            <h3>Monitoring, Reporting and MIS</h3>
+                            <p>A standardised set of formats and an online MIS will be used to track all CSS processes. Regular reviews will support course correction and documentation of progress.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Community System Strengthening</strong> | A Collaborative Initiative</p>
+        <div class="legal">&copy; 2023 National AIDS Control Programme. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>
